@@ -1,6 +1,7 @@
 @import "../../../main-styles.scss";
 
 .note-card-container {
+  position: relative;
   background: white;
   border-radius: 5px;
 
@@ -10,6 +11,12 @@
   &:hover {
     cursor: pointer;
     box-shadow: 0px 0px 0px 4px rgba(black, 0.068);
+
+    //the button is displayed with 100% opacity
+    .x-button {
+      opacity: 1;
+      transition-delay: 0.35s;
+    }
   }
 
   .note-card-content {
@@ -19,6 +26,34 @@
       font-size: 22px;
       font-weight: bold;
       color: $purple;
+    }
+  }
+
+  .x-button {
+    position: absolute;
+    background-color: $light-red;
+
+    top: 8px;
+    right: 8px;
+    height: 24px;
+    width: 24px;
+
+    .icon {
+      font-size: 0.9rem;
+      padding-top: 1px;
+      padding-left: 1px;
+    }
+    transition: opacity 0.5s ease-out;
+
+    // the button is hidden by default
+    opacity: 0;
+
+    &:hover {
+      background-color: darken($light-red, 2%);
+    }
+    //on click
+    &:active {
+      background-color: darken($light-red, 5%);
     }
   }
 }
