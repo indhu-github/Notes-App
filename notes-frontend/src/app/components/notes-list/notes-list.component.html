@@ -14,7 +14,8 @@
     <!-- <app-note-card title="cardTitle" [body]="'first paragraph'"></app-note-card> -->
 
     <app-note-card
-      *ngFor="let note of notes"
+      *ngFor="let note of notes; index as i"
+      [routerLink]="i"
       [title]="note.title"
       [body]="note.body"
     ></app-note-card>
