@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { NotesListComponent } from './components/notes-list/notes-list.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { NoteCardComponent } from './components/note-card/note-card.component';
+import { NoteDetailsComponent } from './components/note-details/note-details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesListComponent,
     MainLayoutComponent,
-    NoteCardComponent
+    NoteCardComponent,
+    NoteDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

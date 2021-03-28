@@ -12,6 +12,12 @@ $blue: #ff6347;
 $light-red: #fff3f3;
 $light: #fafcff;
 
+$green: rgb(
+  47,
+  128,
+  0
+); //bulma automatically takes green variable to color is-success property
+
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
 $primary: $purple;

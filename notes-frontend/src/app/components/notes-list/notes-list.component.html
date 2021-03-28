@@ -1,14 +1,18 @@
 <div class="main-container">
-    <div class="field">
-        <p class="control has-icons-left">
-          <input class="input" type="password" placeholder="Filter">
-          <span class="icon is-small is-left">
-            <i class="fas fa-search"></i>
-          </span>
-        </p>
-      </div>
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" type="password" placeholder="Filter" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-search"></i>
+      </span>
+    </p>
+  </div>
 
-      <div class="notes-list">
-          <app-note-card></app-note-card>
-      </div>
+  <div class="notes-list">
+    <!-- title and body syntaxes are to assign the string value -->
+    <!-- [title]="cardTitle" is used to assign the variable cardTitle value to the title -->
+    <app-note-card title="cardTitle" [body]="'first paragraph'"></app-note-card>
+    <app-note-card></app-note-card>
+    <app-note-card></app-note-card>
+  </div>
 </div>

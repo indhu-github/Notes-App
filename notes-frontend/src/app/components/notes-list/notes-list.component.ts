@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes-list.component.scss']
 })
 export class NotesListComponent implements OnInit {
-
+  cardTitle:string='first title';
   constructor() { }
 
   ngOnInit(): void {
