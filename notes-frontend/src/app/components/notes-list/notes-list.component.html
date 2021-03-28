@@ -11,8 +11,16 @@
   <div class="notes-list">
     <!-- title and body syntaxes are to assign the string value -->
     <!-- [title]="cardTitle" is used to assign the variable cardTitle value to the title -->
-    <app-note-card title="cardTitle" [body]="'first paragraph'"></app-note-card>
-    <app-note-card></app-note-card>
-    <app-note-card></app-note-card>
+    <!-- <app-note-card title="cardTitle" [body]="'first paragraph'"></app-note-card> -->
+
+    <app-note-card
+      *ngFor="let note of notes"
+      [title]="note.title"
+      [body]="note.body"
+    ></app-note-card>
   </div>
+
+  <button class="button floating-add-button is-primary" routerLink="new">
+    +Add
+  </button>
 </div>
