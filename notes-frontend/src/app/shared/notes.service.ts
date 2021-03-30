@@ -32,7 +32,6 @@ export class NotesService {
   }
 
   delete(id:number){
-    console.log("in noteservice");
     return this.notes.splice(id,1);
   }
 }
