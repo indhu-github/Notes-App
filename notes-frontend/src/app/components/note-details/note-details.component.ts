@@ -12,7 +12,7 @@ import { NotesService } from 'src/app/shared/notes.service';
 export class NoteDetailsComponent implements OnInit {
 
   note:Note;
-  noteId:string;
+  noteId:number;
   new:boolean;
   constructor(private noteService:NotesService,private router:Router,private route:ActivatedRoute) { }
 

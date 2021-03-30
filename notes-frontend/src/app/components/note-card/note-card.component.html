@@ -1,5 +1,5 @@
 <div class="note-card-container">
-  <div class="note-card-content">
+  <div class="note-card-content" [routerLink]="link">
     <div class="note-card-title">{{ title }}</div>
     <div #bodyText class="note-card-body">
       <p>{{ body }}</p>
@@ -7,7 +7,7 @@
       <div #truncator class="fade-out-truncation"></div>
     </div>
   </div>
-  <div class="x-button">
+  <div class="x-button" (click)="(onCancelButtonClick)">
     <span class="icon">
       <i class="fas fa-window-close"></i>
     </span>
