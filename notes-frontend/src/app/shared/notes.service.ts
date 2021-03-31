@@ -42,6 +42,7 @@ export class NotesService {
     let terms:string[]=query.split(' ');
 
     terms=[...new Set(terms)];
+    
 
   }
 }
