@@ -34,4 +34,14 @@ export class NotesService {
   delete(id:number){
     return this.notes.splice(id,1);
   }
+
+  filter(query:string){
+    query=query.toLowerCase().trim();
+
+    //split up the search query into individual words
+    let terms:string[]=query.split(' ');
+
+    terms=[...new Set(terms)];
+
+  }
 }
