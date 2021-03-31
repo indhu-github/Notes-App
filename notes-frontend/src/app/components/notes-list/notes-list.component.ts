@@ -34,7 +34,7 @@ import { NotesService } from 'src/app/shared/notes.service';
           paddingBottom:'*',
           paddingLeft:'*',
         })),
-        animate(200)
+        animate(60)
       ]),
 //  any state to the element that is removed from the DOM
       transition('*=>void',[
@@ -65,7 +65,9 @@ import { NotesService } from 'src/app/shared/notes.service';
           stagger(100,[
             animate('0.2s ease')
           ])
-        ])
+        ],{
+          optional:true
+        })
       ])
     ])
   ]
