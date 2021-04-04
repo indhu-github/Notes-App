@@ -9,7 +9,7 @@ export class NoteCardComponent implements OnInit {
 
   @Input() title:string;
   @Input() body:string;
-  @Input() link:number;
+  @Input() link:string;
 
   @Output('delete') deleteEvent:EventEmitter<void>=new EventEmitter<void>();
 
