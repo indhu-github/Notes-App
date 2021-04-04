@@ -2,6 +2,7 @@
   <div class="field">
     <p class="control has-icons-left">
       <input
+        #filterInput
         class="input"
         type="text"
         (keyup)="filter($event)"
@@ -19,10 +20,10 @@
     <!-- <app-note-card title="cardTitle" [body]="'first paragraph'"></app-note-card> -->
 
     <app-note-card
-      *ngFor="let note of filteredNotes; index as i"
-      [link]="i"
+      *ngFor="let note of filteredNotes"
+      [link]="generateNoteuRL(note)"
       [@itemAnim]
-      (delete)="deleteNote(i)"
+      (delete)="deleteNote(note)"
       [title]="note.title"
       [body]="note.body"
     ></app-note-card>

@@ -1,5 +1,5 @@
 import { transition, trigger,style, animate, query, stagger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Note } from 'src/app/shared/note.model';
 import { NotesService } from 'src/app/shared/notes.service';
 
@@ -77,17 +77,24 @@ export class NotesListComponent implements OnInit {
 
   notes:Note[]=new Array<Note>();
   filteredNotes:Note[]=new Array<Note>();
-
+  @ViewChild('filterInput') filterInputRef:ElementRef<HTMLInputElement>;
   constructor(private noteService:NotesService) { }
 
   ngOnInit(){
    this.notes= this.noteService.getAll();
   // console.log(this.notes);
-  this.filteredNotes=this.notes;
+  this.filteredNotes=this.noteService.getAll();
+  //this.filter('');
   }
 
-  deleteNote(id:number){
-    this.noteService.delete(id);
+  deleteNote(note:Note){
+    let noteId=this.noteService.getId(note);
+    this.noteService.delete(noteId);
+    //this.filter(this.filterInputRef.nativeElement.value);
+  }
+ 
+  generateNoteuRL(note:Note){
+    return this.noteService.getId(note);
   }
 
   filter(query){
