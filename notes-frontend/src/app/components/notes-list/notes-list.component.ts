@@ -111,6 +111,8 @@ export class NotesListComponent implements OnInit {
      //remove the duplicates to avoid displaying the same note multiple times in the UI
      this.filteredNotes=[...new Set(AllResults)];    
 
+     //sort by relevancy
+     this.sortByRelevancy(AllResults);
   }
 
   relevantResults(query:string) : Array<Note>{
@@ -122,5 +124,31 @@ export class NotesListComponent implements OnInit {
       return false;
     })
     return relevantNotes;
+  }
+
+  sortByRelevancy(searchResults:Note[]){
+    //It will calculate the relevancy of a note based on the no of times it appears in the search results
+    let noteFrequency:Object={};
+
+    searchResults.forEach(note=>{
+      let noteId=this.noteService.getId(note);
+
+      if(noteFrequency[noteId]){
+        noteFrequency[noteId]+=1;
+      }
+      else{
+        noteFrequency[noteId]=1;
+      }
+    })
+
+    this.filteredNotes=this.filteredNotes.sort((a:Note,b:Note)=>{
+      let IdA=this.noteService.getId(a);
+      let IdB=this.noteService.getId(b);
+
+      let aFreq=noteFrequency[IdA];
+      let bFreq=noteFrequency[IdB];
+
+      return bFreq-aFreq;
+    })
   }
 }
