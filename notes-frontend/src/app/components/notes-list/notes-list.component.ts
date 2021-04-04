@@ -90,15 +90,17 @@ export class NotesListComponent implements OnInit {
   deleteNote(note:Note){
     let noteId=this.noteService.getId(note);
     this.noteService.delete(noteId);
-    //this.filter(this.filterInputRef.nativeElement.value);
+    //must to update the filteredNotes array
+    this.filter(this.filterInputRef.nativeElement.value);
   }
- 
+
+  
   generateNoteuRL(note:Note){
     return this.noteService.getId(note);
   }
 
-  filter(query){
-    query=query.target.value.toLowerCase().trim();
+  filter(query:string){
+    query=query.toLowerCase().trim();
 
     let AllResults:Note[]=new Array<Note>();
 
